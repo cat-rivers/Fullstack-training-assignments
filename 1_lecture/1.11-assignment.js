@@ -9,11 +9,14 @@ process.argv
 
 
 const input = process.argv[2]
+console.log(typeof input)
+
 
 const areaOfSquare = ( length) => {
-  const result = Number(length) ** 2;
+  const result = length * length
   console.log(`the area of your square is: ${result}`)
 
 }
 
 areaOfSquare(input)
+

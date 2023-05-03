@@ -15,23 +15,23 @@ const sender = "Camila Muniz";
 const title = isDoctor? "Dr.": "Mx. "
 const newAge = (age + 1).toString()
 const newAgeLastNumber = newAge[1]
-let numEnd
+let suffix
 
  switch (newAgeLastNumber) {
   case "1":
-   numEnd = "st";
+   suffix = "st";
     break;
   case "2":
-    numEnd = "nd";
+    suffix = "nd";
     break;
   case "3":
-    numEnd = "rd";
+    suffix = "rd";
     break;
   default:
-    numEnd =  "th";
+    suffix =  "th";
 }
 
-const nextAge = newAge + numEnd
+const nextAge = newAge + suffix
 
 
 console.log(

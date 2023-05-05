@@ -34,6 +34,9 @@ const groupSizeThree = (people, size) => {
 }
 
 
+console.log(0%0.5)
+console.log(1 % 0)
+
 groupSizeOne(numPeople, sizeOfGroup)
 groupSizeTwo(numPeople, sizeOfGroup)
 groupSizeThree(numPeople, sizeOfGroup)

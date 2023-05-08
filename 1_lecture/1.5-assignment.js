@@ -37,6 +37,8 @@ if(isSunny && temperature > 19 && !isCloudy){
 
 //Is Arin Happy?
 
-const seesSuzy = true
-const seesDan = true
+const seesSuzy = true;
+const seesDan = true;
 const isTuesday = true;
+
+

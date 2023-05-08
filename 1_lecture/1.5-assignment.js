@@ -41,4 +41,6 @@ const seesSuzy = true;
 const seesDan = true;
 const isTuesday = true;
 
+// Some code apparently is missing
+
 

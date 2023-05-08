@@ -14,7 +14,7 @@ const isDoctor = true;
 const sender = "Camila Muniz";
 const title = isDoctor? "Dr.": "Mx. "
 const newAge = (age + 1).toString()
-const newAgeLastNumber = newAge[1]
+const newAgeLastNumber = newAge[1] // what if they're over 100?
 let suffix
 
  switch (newAgeLastNumber) {

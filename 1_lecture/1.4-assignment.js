@@ -7,7 +7,7 @@ const newStr = str1 + str2
 console.log(newStr)
 
 //print lengths
-console.log(str1.length , str2.length)
+console.log(str1.length , str2.length, "total lengths" , newStr.length)
 
 //avergage length
 const avgLength = (str1.length + str2.length)/2

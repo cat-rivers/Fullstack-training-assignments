@@ -9,6 +9,8 @@ const groupSizeOne = (people, size) => {
   console.log(`number of groups: ${result}`);
 };
 
+groupSizeOne(numPeople, sizeOfGroup)
+
 //Basic solution without Math library
 
 const groupSizeTwo = (people, size) => {
@@ -20,6 +22,7 @@ const groupSizeTwo = (people, size) => {
   console.log(`number of groups: ${result}`);
 };
 
+groupSizeTwo(numPeople, sizeOfGroup)
 
 
 
@@ -34,10 +37,5 @@ const groupSizeThree = (people, size) => {
 }
 
 
-console.log(0%0.5)
-console.log(1 % 0)
-
-groupSizeOne(numPeople, sizeOfGroup)
-groupSizeTwo(numPeople, sizeOfGroup)
-groupSizeThree(numPeople, sizeOfGroup)
+// groupSizeThree(numPeople, sizeOfGroup)
 

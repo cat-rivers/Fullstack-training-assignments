@@ -7,7 +7,7 @@ const a: number = Number(process.argv[2]);
 const b: number = Number(process.argv[3]);
 const c = process.argv[4]
 
-const func = (a: number, b: number, c: string) => {
+const func = (a: number, b: number, c: string | void) => {
     if(a === b && c === "hello world"){
         console.log("you guessed the password!")
     }else if (a > b){
@@ -20,5 +20,8 @@ const func = (a: number, b: number, c: string) => {
 }
 
 func(a , b ,c)
+func(1 , 2)
+func(2,1)
+func(2,2,"hello world")
 
 

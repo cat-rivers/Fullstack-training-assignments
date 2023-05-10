@@ -4,7 +4,11 @@ const n1 = process.argv[2]
 const n2 = process.argv[3]
 const n3 = process.argv[4]
 
-//option A
+//initials seperated with dots
+console.log(`${n1[0]}.${n2[0]}.${n3[0]}`)
+
+
+//option A string length comparison
 
 
 if (n1.length > n2.length && n1.length > n3.length) {
@@ -30,7 +34,7 @@ if (n1.length > n2.length && n1.length > n3.length) {
 
 
 
-// option b
+// option B string length comparison
 const container = [n1, n2 ,n3];
 const res = container.sort( (a, b) => {
     return b.length - a.length;

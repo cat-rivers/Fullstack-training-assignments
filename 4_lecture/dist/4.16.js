@@ -1,5 +1,6 @@
 "use strict";
 //Range with
+// !run command line --> node dist/4.16.js <arg1> <arg2>
 const arg1 = parseInt(process.argv[2]);
 const arg2 = parseInt(process.argv[3]);
 function arrayMaker(start, end) {

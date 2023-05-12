@@ -37,10 +37,14 @@ if(isSunny && temperature > 19 && !isCloudy){
 
 //Is Arin Happy?
 
-const seesSuzy = true;
-const seesDan = true;
+const seesSuzy = false;
+const seesDan = false;
 const isTuesday = true;
 
-// Some code apparently is missing
+if(isTuesday && seesDan !== seesSuzy){
+  console.log("Arin is Happy")
+}else{
+  console.log("Arin is not happy D:")
+}
 
 

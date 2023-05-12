@@ -9,12 +9,12 @@ The name parameters should be strings, age a number and isDoctor a boolean.
 
 
 const lastName = "Riveros";
-const age = 34;
+const age = 102;
 const isDoctor = false;
 const sender = "Camila Muniz";
 const title = isDoctor? "Dr.": "Mx. "
 const newAge = (age + 1).toString()
-const newAgeLastNumber = newAge[1]
+const newAgeLastNumber = newAge[newAge.length - 1]
 let suffix
 
  switch (newAgeLastNumber) {

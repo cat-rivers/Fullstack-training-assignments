@@ -13,23 +13,14 @@ const stringModifyer = (string) => {
 
 //check if string meets conditions
 const stringchecker = (string) => {
-  let isLessThan20;
-  let istrimmed;
-  let isLowerCase;
+  
 
-  string !== string.trim() // TODO: not evaluating this // argv trims space automatically so always isTrimmed
-    ? (istrimmed = false)
-    : (istrimmed = true);
+  const isTrimmed = string === string.trim()
+  const isLessThan20 = string.length <= 20
+  const isLowerCase = string[0] == string[0].toLowerCase()
 
-  string.length <= 20
-    ? (isLessThan20 = true)
-    : (isLessThan20 = false);
 
-  string[0] == string[0].toLowerCase()
-    ? (isLowerCase = true)
-    : (isLowerCase = false);
-
-  isLessThan20 && istrimmed && isLowerCase
+  isLessThan20 && isTrimmed && isLowerCase
     ? console.log("ok")
     : console.log("ERROR!");
 };

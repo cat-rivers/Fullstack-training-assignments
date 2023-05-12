@@ -1,2 +1,9 @@
 "use strict";
-console.log("hello I work!");
+function firstToUpperCase(string) {
+    const strArr = string
+        .split(" ")
+        .map((str) => str[0].toUpperCase() + str.substring(1))
+        .join(" ");
+    console.log(strArr);
+}
+firstToUpperCase("cati is a poopy head");

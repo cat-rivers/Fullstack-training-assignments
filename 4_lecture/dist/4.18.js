@@ -1,11 +1,11 @@
 "use strict";
 //palindrome
-const arg = "Madam";
-let palindrome;
+const arg = process.argv[2];
+let palindrome = true;
 function checkIsPalindrome(str) {
     const word = str.toLowerCase();
-    for (let i = 0; i < word.length / 2; i++) {
-        let j = word.length - 1 - i;
+    for (let i = 0; i < word.length / 2 + 1; i++) {
+        let j = word.length - i - 1;
         if (word[i] === word[j]) {
             palindrome = true;
         }

@@ -16,6 +16,4 @@ function getVowelCount(string: string) {
 
 console.log(getVowelCount("aaaabbbbccceee"))
 console.log(getVowelCount("bbb"))
-console.log(getVowelCount("aeiouy"))
-console.log(getVowelCount("dddddi"))
-console.log(getVowelCount("brekfesty"))
+console.log(getVowelCount('abracadabra') )// 5

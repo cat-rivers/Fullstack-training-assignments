@@ -3,15 +3,15 @@
 
 
 const diceMaker = (sides: number) => {
-  return (throws: number) => {
-    let res = 0;
-    for (let i = 0; i < throws; i++) {
-      const rand = Math.floor(Math.random() * sides) +1;
-      res = res + rand;
-    }
+    return (throws: number) => {
+        let res = 0;
+        for (let i = 0; i < throws; i++) {
+            const rand = Math.floor(Math.random() * sides) +1;
+            res = res + rand;
+        }
 
-    return res;
-  };
+        return res;
+    };
 };
 
 const d8 = diceMaker(8)

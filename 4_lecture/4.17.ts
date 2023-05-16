@@ -6,9 +6,9 @@ const phrase = process.argv[2]
 
 
 const reversedPhrase = phrase
-  .split(" ")
-  .map(el => el.split("").reverse().join(""))
-  .join(" ");
+    .split(" ")
+    .map(el => el.split("").reverse().join(""))
+    .join(" ");
 
 
 console.log(reversedPhrase)

@@ -15,9 +15,9 @@ const numbers = [
 ]
 const newArr = numbers.filter((number) => {
     if (number % 15){
-            if(number % 3 === 0 || number % 5 ===0){
-                return number
-            }
+        if(number % 3 === 0 || number % 5 ===0){
+            return number
+        }
     } 
 })
 console.log(newArr)

@@ -5,6 +5,9 @@ This repository holds all lecture exercises for Buutti fullstack training 2023.
 
 In order to run programs navigate to the target lecture directory (i.e. cd 3_lecture)
 
+For quickly running a ts file you can run 
+
+        nodemon <ts file>
 <br>
 
 ## Getting Started

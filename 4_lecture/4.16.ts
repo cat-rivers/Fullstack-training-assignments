@@ -9,18 +9,18 @@ const arg2 =  parseInt(process.argv[3])
 
 
 function arrayMaker(start: number, end: number) {
-  let res: number[] = [];
-  if (start < end) {
-    for (let i = start; i < end; i++) {
-      res.push(i);
+    let res: number[] = [];
+    if (start < end) {
+        for (let i = start; i < end; i++) {
+            res.push(i);
+        }
+    } else {
+        for (let i = start; i > end; i--) {
+            res.push(i);
+        }
     }
-  } else {
-    for (let i = start; i > end; i--) {
-      res.push(i);
-    }
-  }
 
-  console.log(res);
+    console.log(res);
 }
 
 

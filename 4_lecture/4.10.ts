@@ -17,8 +17,8 @@ const names = [
 ]
 
 const res = names.find(
-  (name) =>
-    name[name.length - 1] === "t" && name.length === 3
+    (name) =>
+        name[name.length - 1] === "t" && name.length === 3
 );
 
 console.log(res)

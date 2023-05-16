@@ -2,11 +2,11 @@
 
 
 const factorial = (n: number): number => {
-  if (n > 1) {
-    return n * factorial(n - 1);
-  } else {
-    return n;
-  }
+    if (n > 1) {
+        return n * factorial(n - 1);
+    } else {
+        return n;
+    }
 };
 
 console.log(factorial(4))

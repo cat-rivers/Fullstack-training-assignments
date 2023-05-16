@@ -13,5 +13,5 @@ const names = [
     'herkko'
 ]
 
- names.forEach((name) => console.log(name[0].toUpperCase() + name.slice(1)))
+names.forEach((name) => console.log(name[0].toUpperCase() + name.slice(1)))
 

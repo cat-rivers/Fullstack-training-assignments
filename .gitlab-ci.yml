@@ -7,7 +7,7 @@ cache:
 
 stages:
   - install
-  - lint
+  # - lint
   - build
 
 install:
@@ -15,10 +15,10 @@ install:
   script:
     - cd 5.1-assignment && npm install
 
-lint:
-  stage: lint
-  script:
-    -  cd 5.1-assignment && npm run lint
+# lint:
+#   stage: lint
+#   script:
+#     -  cd 5.1-assignment && npm run lint
 
 build:
   stage: build

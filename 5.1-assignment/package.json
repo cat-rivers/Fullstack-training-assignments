@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "lint": "eslint ."
+    "build": "tsc"
+   
   },
   "keywords": [],
 "author": "",

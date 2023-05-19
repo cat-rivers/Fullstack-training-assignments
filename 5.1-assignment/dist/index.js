@@ -4,5 +4,5 @@
 //! error message: 
 //! ESLint couldn't determine the plugin "@typescript-eslint" uniquely.
 // deleting script for now
-console.log("Success");
+console.log("Success or Failure?");
 let hello = "hello;";

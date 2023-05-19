@@ -3,7 +3,7 @@ default:
 
 cache:
   paths:
-    - node_modules/
+    - ./5.1-assignment/node_modules/
 
 stages:
   - install

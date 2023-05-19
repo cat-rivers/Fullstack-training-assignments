@@ -18,7 +18,7 @@ install:
 lint:
   stage: lint
   script:
-    -  npm run lint
+    -  cd 5.1-assignment && npm run lint
 
 build:
   stage: build

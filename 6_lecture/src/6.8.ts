@@ -1,6 +1,20 @@
 import axios from "axios";
 // import { type } from "os";
+// async function getAllTodos (){
+//     const allTodos = await  axios.get('https://jsonplaceholder.typicode.com/todos')
 
+//     return allTodos
+// }
+
+
+// async function ex() {
+//   const todo = await getAllTodos()
+//   console.log(todo)
+
+
+// }
+
+// ex();
 
 
 type Todo = {
@@ -20,21 +34,7 @@ interface User {
 
 }
 
-// async function getAllTodos (){
-//     const allTodos = await  axios.get('https://jsonplaceholder.typicode.com/todos')
 
-//     return allTodos
-// }
-
-
-// async function ex() {
-//   const todo = await getAllTodos()
-//   console.log(todo)
-
-
-// }
-
-// ex();
 
 
 const todos = async (): Promise<void> => {

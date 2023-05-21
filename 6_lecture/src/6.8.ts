@@ -1,5 +1,6 @@
 import axios from "axios";
-// import { type } from "os";
+
+
 // async function getAllTodos (){
 //     const allTodos = await  axios.get('https://jsonplaceholder.typicode.com/todos')
 
@@ -38,13 +39,13 @@ interface User {
 
 
 const todos = async (): Promise<void> => {
-    const todos = await fetch('https://jsonplaceholder.typicode.com/todos/')
+    const todos = await axios.get('https://jsonplaceholder.typicode.com/todos/')
         .then(
-            async (res) => await res.json()
+            async (res) => await res.data
         )
-    const users = await fetch('https://jsonplaceholder.typicode.com/users/')
+    const users = await axios.get('https://jsonplaceholder.typicode.com/users/')
         .then(
-            async (res) => await res.json()
+            async (res) => await res.data
         )
 
     const result = todos.map((todo: Todo) => {

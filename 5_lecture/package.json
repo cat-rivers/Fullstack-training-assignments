@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.1.1",
+    "fs": "^0.0.1-security",
     "typescript": "^5.0.4"
   },
   "devDependencies": {

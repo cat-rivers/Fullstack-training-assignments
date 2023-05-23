@@ -1,22 +1,6 @@
 import axios from "axios";
 
 
-// async function getAllTodos (){
-//     const allTodos = await  axios.get('https://jsonplaceholder.typicode.com/todos')
-
-//     return allTodos
-// }
-
-
-// async function ex() {
-//   const todo = await getAllTodos()
-//   console.log(todo)
-
-
-// }
-
-// ex();
-
 
 type Todo = {
   userId :number

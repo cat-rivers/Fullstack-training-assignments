@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start" :"func() { tsc && node ./dist/${1};}; func"
+    "start": "func() { tsc && node ./dist/${1};}; func"
   },
   "keywords": [],
   "author": "",

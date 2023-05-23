@@ -1,0 +1,26 @@
+default:
+  image: node
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - install
+  - lint
+  - build
+
+install:
+  stage: install
+  script:
+    -  npm install
+
+lint:
+  stage: lint
+  script:
+    -   npm run lint
+
+build:
+  stage: build
+  script:
+    - npm run build

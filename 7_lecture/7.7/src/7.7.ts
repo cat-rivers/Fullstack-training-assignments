@@ -1,33 +1,46 @@
-//Command line converter
+// //Command line converter
 
-import { parse } from "path"
+// import { parse } from "path"
 
 
 /*
 !Units available:
 - dl : deciliter
-- li: liter
-- c: cup
-- oz: ounce
-- ip: imperial pint*/
+- liter: liter
+- cup: cup
+- ounce: ounce
+- pint: us pint*/
 
 // run : nodemon ./src/7.7.ts <amount: number> <unitFrom: string> <unit to: string>
+interface ConversionTable {
+  [key: string]: number;
+}
+
+
+
+export function convertVolume (inputAmount:number, sourceUnit: string, targetUnit:string){
+  const conversionTable: ConversionTable = {
+    dl: 100,
+    liter: 1000,
+    ounce: 29.5735,
+    cup: 236.588,
+    pint: 473.176,
+  }
+
+   const sourceValue = conversionTable[sourceUnit]
+   const targetValue = conversionTable[targetUnit]
+   const result = (inputAmount * sourceValue)/targetValue 
+   console.log(`${amount} ${sourceUnit} is: ${result} ${targetUnit}`)
+}
 
 const amount = parseInt(process.argv[2])
 const unitFrom = process.argv[3]
 const unitTo = process.argv[4]
-let res: number
-function units(amount: number, unitOne: string, unitTwo:string){
-  if(unitOne === "c"){
-    if(unitTwo === "dl"){res = amount * 2.36588}
-    if(unitTwo === "li"){res = amount * 0.23658}
-    if(unitTwo === "oz"){res = amount * 8}
-    if(unitTwo === "ip"){res = amount * 0.416337}
-    
-  }
-  return res
-}
 
-console.log(units(amount,unitFrom,unitTo))
-console.log(units(6,"c","li"))
-console.log(units(6,"c","ip"))
+
+convertVolume(amount, unitFrom,unitTo) 
+
+
+
+
+

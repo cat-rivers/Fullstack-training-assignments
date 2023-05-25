@@ -14,9 +14,6 @@ describe("division", () => {
 
 })
 
-
-
-
 describe('division', () => {
   it('throws error', () => {
       expect(calculator(".", 6,2)).toBe("you cant do that D:")

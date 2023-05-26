@@ -41,22 +41,9 @@ server.get("/student/:id", checkId,(req: Request, res: Response)=> {
 //modifies existing student or returns error if !student
 server.put("/student/:id",checkPartialParams, (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
-  // const studentIndex = students.findIndex((stu) => stu.id === id)
-  //!now wont find studetn by id to change it....agggg
 
   const body: Body = req.body;
-  // let student = students.map(stu => {
-  //   if (stu.id === id) {
 
-  //     students[studentIndex] = {...students[studentIndex],
-  //       name: body.name || stu.name, email: body.email || stu.email
-  //     }
-  //     return stu
-
-  //   }else if(!studentIndex){
-  //     res.status(404).send("Student not found")
-  //   }
-  // })
   students = students.map(student => {
     if (student.id === id) {
       return { ...student, ...body };

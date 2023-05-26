@@ -1,5 +1,5 @@
 import  express, {Request, Response} from 'express'
-import {  checkParams, checkId, checkPartialParams} from './middleware'
+import {  logger,checkParams, checkId, checkPartialParams} from './middleware'
 
 interface Body {
   id: number
@@ -10,7 +10,7 @@ interface Body {
 
 const server = express(); 
 server.use(express.json());
-
+server.use(logger)
 let students: Body[] = [];
 
 //Gets all students
@@ -21,7 +21,6 @@ server.get("/students", (req: Request, res: Response) => {
 //Posts new student object
 server.post("/student", checkParams, (req: Request, res: Response) => {
   const body: Body = req.body;
-  console.log("post student:", body)
   students.push(body)
   res.status(201).send()
 });
@@ -39,29 +38,51 @@ server.get("/student/:id", checkId,(req: Request, res: Response)=> {
 })
 
 //modifies existing student or returns error if !student
-server.put("/student/:id",checkPartialParams, (req: Request, res: Response) => {
-  const id = parseInt(req.params.id);
+server.put( "/student/:id",  checkPartialParams,  (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    const body: Body = req.body;
+    const studentExists = students.find((student) => student.id === id)
 
-  const body: Body = req.body;
-
-  students = students.map(student => {
-    if (student.id === id) {
-      return { ...student, ...body };
+    if(!studentExists){
+      res.status(404).send("student doesnt exist")
     }
-    return student;
-  });
+
+    students = students.map(student => {
+      if (student.id === id) {
+        return { ...student, ...body };
+      }
+      return student;
+    });
+    res.status(204).send();
+ 
+  }
+);
+
+//deletes studetn by id
+
+server.delete("/student/:id", checkId, (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+  const studentExists = students.find(student => student.id === id);
+
+  if (!studentExists) {
+    res.status(404).send("student doesnt exist");
+  }
+
+  students = students.filter(student => student.id !== id);
   res.status(204).send();
-  console.log(students);
 });
 
+
+server.use(checkId);
 server.use(checkPartialParams)
 server.use(checkParams);
-server.use(checkId);
 
 server.listen(3000, () => {console.log("listening")})
 
 
 export{}
+
+
 
 
 

@@ -1,7 +1,7 @@
 
-import express, {Request, Response, NextFunction} from 'express'
+import {Request, Response, NextFunction} from 'express'
 
-export const middlewear = (req: Request, res: Response, next: NextFunction) => {
+export const logger = (req: Request, res: Response, next: NextFunction) => {
   const reqTime = new Date();
   const method = req.method;
   const url = req.url;

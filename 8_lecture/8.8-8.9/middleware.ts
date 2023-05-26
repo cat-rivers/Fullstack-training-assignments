@@ -24,6 +24,14 @@ export const checkParams = (req: Request, res: Response, next: NextFunction) => 
     next()
 }
 
+export const checkPartialParams = (req: Request, res: Response, next: NextFunction) => {
+  const { name, id, email } = req.body
+    if ( !name && !email)  {
+        return res.status(400).send('Error: Missing Email and Name')
+    }
+    next()
+}
+
 export const checkId = (req: Request, res: Response, next: NextFunction) => {
   const { id} = req.params
  

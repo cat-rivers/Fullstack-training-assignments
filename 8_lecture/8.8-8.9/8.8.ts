@@ -1,6 +1,5 @@
 import  express, {Request, Response} from 'express'
-// const express = require('express');
-import {  checkParams, checkId} from './middleware'
+import {  checkParams, checkId, checkPartialParams} from './middleware'
 
 interface Body {
   id: number
@@ -42,27 +41,31 @@ server.get("/student/:id", checkId,(req: Request, res: Response)=> {
 })
 
 
-server.put("/student/:id",checkParams, (req: Request, res: Response) => {
+server.put("/student/:id",checkPartialParams, (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
+  const studentIndex = students.findIndex((stu) => stu.id === id)
+
   const body: Body = req.body;
   let student = students.map(stu => {
     if (stu.id === id) {
-      const result = { ...stu, name: body.name, email: body.email };
-      console.log(result)
-      return result
+  
+      students[studentIndex] = {...students[studentIndex],
+        name: body.name || stu.name, email: body.email || stu.email
+      }
+      return students[studentIndex]
      
     }else{
-      res.status(400).send("you fucked up")
+      res.status(404).send("Student not found")
     }
   })
-//! able to modify student object but still need to replace from students array
-  res.status(201).send(student)
+  res.status(204).send()
   console.log(student)
   
 
   // res.send("put request called")
 });
 
+server.use(checkPartialParams)
 server.use(checkParams);
 server.use(checkId);
 

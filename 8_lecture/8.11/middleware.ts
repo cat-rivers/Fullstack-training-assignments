@@ -18,3 +18,12 @@ export const checkId = (req: Request, res: Response, next: NextFunction) => {
       }
       next()
   }
+
+  export const checkPartialParams = (req: Request, res: Response, next: NextFunction) => {
+    const { name, id, author, read } = req.body
+     
+      if ( id )  {
+        return res.status(400).send('Error: Id cannot be updated')
+    }
+      next()
+  }

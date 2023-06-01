@@ -1,5 +1,6 @@
 import express, {Request, Response} from 'express'
-import { checkId, checkParams, checkPartialParams } from './middleware'
+import { checkId, checkParams, checkPartialParams, authenticate,adminAuth } from './middleware'
+
 
 
 interface Body {
@@ -11,12 +12,15 @@ interface Body {
    let students: Body[] = [];
   
 const router = express.Router()
-router.get('/', (req: Request, res: Response)=> {
+
+
+//gets all students
+router.get('/',authenticate, (req: Request, res: Response)=> {
     res.send(students)
 })
 
-
-router.get("/:id", checkId,(req: Request, res: Response)=> {
+//gets student by id
+router.get("/:id",authenticate, checkId,(req: Request, res: Response)=> {
 
     const id = parseInt(req.params.id);
     const student = students.find(stu => stu.id === id);
@@ -27,7 +31,9 @@ router.get("/:id", checkId,(req: Request, res: Response)=> {
        
   })
 
-  router.put( "/:id",  checkPartialParams,  (req: Request, res: Response) => {
+
+  //!adminAuth not working
+  router.put( "/:id", authenticate, adminAuth, checkPartialParams,  (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
     const body: Body = req.body;
     const studentExists = students.find((student) => student.id === id)
@@ -47,15 +53,17 @@ router.get("/:id", checkId,(req: Request, res: Response)=> {
   }
 );
 
-
-//Posts new student object
-router.post("/", checkParams, (req: Request, res: Response) => {
+//! adminAuth not working
+//create new student object
+router.post("/register",authenticate,adminAuth, checkParams, (req: Request, res: Response) => {
     const body: Body = req.body;
     students.push(body)
-    res.status(201).send()
+    res.status(200).send()
   });
 
-router.delete("/:id", checkId, (req: Request, res: Response) => {
+
+//! adminAuth not working
+router.delete("/:id",authenticate,adminAuth, checkId, (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
     const studentExists = students.find(student => student.id === id);
   

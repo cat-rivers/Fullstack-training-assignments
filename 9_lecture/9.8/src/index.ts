@@ -2,8 +2,7 @@ import  express, {Request, Response} from 'express'
 import argon from 'argon2'
 // import * as dotenv from 'dotenv'
 import 'dotenv/config'
-import jwt from 'jsonwebtoken'
-import {  checkParams, checkId, checkPartialParams} from './middleware'
+import {  checkParams, checkId, checkPartialParams, authenticate, adminAuth} from './middleware'
 import studentRouter from './studentsRouter'
 import loginRouter from './loginRouter'
 
@@ -24,7 +23,8 @@ server.get('/', (req, res) => {
 })
 
 // const passWrd= argon.hash("poopiPooP100").then((res)=> console.log(res))
-
+server.use(authenticate)
+server.use(adminAuth)
 server.use(checkId);
 server.use(checkPartialParams)
 server.use(checkParams);

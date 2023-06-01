@@ -3,6 +3,7 @@ import express, {Request, Response} from 'express'
 import argon from 'argon2'
 import 'dotenv/config'
 const router = express.Router()
+import jwt from "jsonwebtoken"
 
 
 interface UserInfo {
@@ -14,7 +15,7 @@ interface UserInfo {
 
 export let users: UserInfo[] = []
 
-router.post('/', (req: Request, res: Response)=> {
+router.post('/register', (req: Request, res: Response)=> {
   const {username, password} = req.body
   if(!username || !password){
       res.status(404).send("missing paramteres")
@@ -22,8 +23,11 @@ router.post('/', (req: Request, res: Response)=> {
   argon.hash(password)
   .then((result: string) => users.push({"username": username, "password": result}))
   
-  res.status(201).send(users)
+  const token = jwt.sign({username: username}, "poopihead", {expiresIn: "25m"})
+  res.status(200).send(token)
 })
+
+
 
 
 router.post(
@@ -37,14 +41,14 @@ router.post(
       (user) => user.username === username
     );
     if (user) {
-      const passwordInput = password;
       const verified = await argon.verify(
         user.password,
         password
       );
+      const token = jwt.sign({username: username}, "poopihead", {expiresIn: "25m"})
 
       verified
-        ? res.status(204).send()
+        ? res.status(200).send(token)
         : res.status(401).send("unauthorized");
     } else {
       res.status(401).send("unauthorized from login");
@@ -67,14 +71,17 @@ router.post(
         process.env.ADMIN_PSW as string,
         password
       );
+      const token = jwt.sign({username: username}, "poopihead", {expiresIn: "25m"})
 
       verified
-        ? res.status(204).send(console.log("success"))
+        ? res.status(200).send(console.log(token))
         : res.status(401).send("unauthorized");
     } else {
       res.status(401).send("why?");
     }
   }
 );
+
+//! admin psw: argon.hash("poop").then((res) => console.log(res))
 
 export default router

@@ -1,13 +1,40 @@
-import express, {Request, Response} from 'express'
+import  express, {Request, Response} from 'express'
+
+import 'dotenv/config'
+import {  checkParams, checkId, checkPartialParams, authenticate, adminAuth, endPointNotFound} from './middleware'
+import studentRouter from './studentsRouter'
+import loginRouter from './loginRouter'
+
+const server = express(); 
 
 
-const server = express()
 
 
 
-server.get("/", (req: Request, res: Response) => {
-    res.send("hello world")
+server.use(express.json());
+server.use("/students", studentRouter)
+server.use("/user", loginRouter)
+// server.use(express.static('public'))
+
+server.get('/', (req, res) => {
+    res.send('OK')
 })
+
+// const passWrd= argon.hash("poopiPooP100").then((res)=> console.log(res))
+
+
+server.use(endPointNotFound)
+
+
 
 
 export default server
+
+
+
+
+
+
+
+
+

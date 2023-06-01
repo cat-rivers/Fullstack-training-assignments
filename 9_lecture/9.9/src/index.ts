@@ -1,3 +1,5 @@
-import server from "./server"
+import server from "./server";
+import 'dotenv/config'
+const {PORT} = process.env
 
-server.listen(3000, () => console.log("listening"))
+server.listen(PORT, () => {console.log("listening to port 3000")})

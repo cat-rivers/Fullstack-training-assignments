@@ -1,9 +1,13 @@
 import express,{Response, Request} from "express"
 import { checkId, checkParams, checkPartialParams , endPointNotFound, logger} from "./middleware";
+import helmet from 'helmet'
 
 const app = express() 
 app.use(express.json())
 app.use(logger)
+app.use(helmet())
+
+
 
 interface Book {
   id: number;

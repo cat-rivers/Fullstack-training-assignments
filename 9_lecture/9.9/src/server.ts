@@ -1,7 +1,7 @@
 import  express, {Request, Response} from 'express'
 
 import 'dotenv/config'
-import {  checkParams, checkId, checkPartialParams, authenticate, adminAuth, endPointNotFound} from './middleware'
+import {   endPointNotFound} from './middleware'
 import studentRouter from './studentsRouter'
 import loginRouter from './loginRouter'
 

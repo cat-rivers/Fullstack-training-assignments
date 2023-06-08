@@ -16,19 +16,34 @@ describe('Server', () => {
     })
 
 
-    it("returns 200 when body includes parameters", async () => {
+    it("returns 200 if login password and username are correct", async () => {
         const response = await request(server)
-            .post('/user/register' )
-            .send({username: "foo", password: "bar" })
+            .post('/api/v1/user/login' )
+            .send({username: "catalina", password: "poop" })
         expect(response.statusCode).toBe(200)
     
     })
-
-    it("returns 401 if  userdoesnt exist", async () => {
+    it("returns 401 if login password is wrong", async () => {
         const response = await request(server)
-            .post('/user/login' )
-            .send({username: "catalina", password: "poop"})
+            .post('/api/v1/user/login' )
+            .send({username: "catalina", password: "bloob" })
         expect(response.statusCode).toBe(401)
+  
+    })
+
+    it("returns 401 if username is not found", async () => {
+        const response = await request(server)
+            .post('/api/v1/user/login' )
+            .send({username: "clata", password: "poop" })
+        expect(response.statusCode).toBe(401)
+
+    })
+
+    it("login user if username is unique and password is provided", async () => {
+        const response = await request(server)
+            .post('/api/v1/user/register' )
+            .send({username: "poop", password: "poop"})
+        expect(response.statusCode).toBe(200)
     
     })
 })

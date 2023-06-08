@@ -63,7 +63,6 @@ export const authenticate = (req: CustomReq, res: Response, next: NextFunction) 
     const secret = "poopihead"
     try {
         const decodedToken = jwt.verify(token, secret)
-        console.log(decodedToken)
         req.username = decodedToken
         next()
     } catch (error) {
